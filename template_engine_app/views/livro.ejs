@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title><%= livro.titulo %></title>
+</head>
+<style>
+    img{
+        width: 25%;
+    }
+    h1{
+        text-align: center;
+    }
+    .divPai{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin: 5%;
+    }
+    #divInformacoes{
+        text-align: right;
+        margin-right: 10%;
+    }
+    a{
+        color: black;
+        text-decoration: none;
+    }
+</style>
+<body>
+  <h1><%= livro.titulo %></h1>
+  <div class="divPai">
+    <div id="divInformacoes">
+        <p>Autor: <%= livro.autor %></p>
+        <p>Preço: R$ <%= livro.preco.toFixed(2).replace(".", ",") %></p>
+        <p>Quantidade: <%= livro.quantidade %></p>
+
+        <% if (livro.promocao) { %>
+            <p>🔥 Livro em promoção!</p>
+        <% } %>
+
+        <% if (livro.quantidade > 0) { %>
+            <p>Livro disponível</p>
+        <% } else { %>
+            <p>Indisponível no momento</p>
+        <% } %>
+    </div>
+    <div>
+        <img src="<%= livro.imagem %>" alt="capa do livro">
+    </div>
+  </div>
+  
+  <a href="/">Voltar ⏎</a>
+</body>
+</html>

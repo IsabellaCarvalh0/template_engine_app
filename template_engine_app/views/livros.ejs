@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Livraria</title>
+</head>
+
+<body>
+  <h1>Livraria</h1>
+
+  <% livros.forEach(livro => { %>
+    <h2><%= livro.titulo %></h2>
+    <p>Autor: <%= livro.autor %></p>
+    <p>Preço: R$ <%= livro.preco.toFixed(2).replace(".", ",") %></p>
+    <a href="/livro?id=<%= livro.id %>">Ver detalhes</a>
+  <% }) %>
+</body>
+</html>
